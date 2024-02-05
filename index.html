@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Budget APP</title>
+</head>
+
+<body>
+  <div class="container-fluid d-flex p-3">
+    <div class="container " id="container1">
+      <div class="d-flex justify-content-between ">
+        <h2 class="text-uppercase ">EXPENSE TRACKER</h2>
+        <button onclick="viderLocal()" id="btnReset" class="btn rounded-2">Reset value</button>
+      </div>
+      <hr>
+      <div class="border border-success mb-3 p-1 rounded-2">
+        <form id="budget-form" class="budget-form">
+          <h5 class="text-capitalize">please enter your budget</h5>
+          <p class="d-none  error " id="erreur-budget">
+            La valeur ne peut pas être vide ou négative
+          </p>
+          <div class="form-group">
+            <input type="number" class="form-control budget-input border border-success mb-2 " id="inputBudget">
+            <button type="button" class="btn btn-outline-success" id="btnCalculate">Calculate</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="border border-danger rounded-2 p-1">
+        <form id="budget-form" class="budget-form">
+          <h5 class="text-capitalize">Please Enter Your Expense</h5>
+          <p class="d-none  error " id="erreur-expense">
+            veuillez renseigner les champs de la depense correctement
+          </p>
+          <div class="form-group">
+            <input type="text" class="form-control budget-input border border-danger mb-2 " id="inputProduit">
+            <h5 class="text-capitalize">please enter Expense amount </h5>
+            <input type="number" class="form-control budget-input border border-danger mb-2" id="inputValeurs">
+            <button onclick="AddExpense()" id="btnSoldes" type="button" class="btn btn-outline-danger">Add Expense</button>
+            <button onclick="modifierBtn()" id="btnModifier" type="button" class="btn btn-outline-danger d-none">Update Expense</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+    <div class="container" id="container2 ">
+      <div class="d-flex justify-content-between ">
+        <div class="d-flex align-items-center flex-column">
+          <h5 class="text-capitalize">budget</h5>
+          <span><i class="bi bi-cash-stack fs-1"></i></span>
+          <h6 id="budgetTotale" class="text-success">0F</h6>
+        </div>
+        <div class="d-flex align-items-center flex-column">
+          <h5 class="text-capitalize">expenses</h5>
+          <span><i class="bi bi-credit-card-2-back-fill fs-1"></i></span>
+          <h6 id="depensTotale" class="text-danger">0F</h6>
+        </div>
+        <div class="d-flex align-items-center flex-column">
+          <h5 class="text-capitalize">balance</h5>
+          <span><i class="bi bi-currency-dollar fs-1"></i></span>
+          <h6 id="balanceTotale" class="text-success">0F</h6>
+        </div>
+      </div>
+      <hr>
+      <table class="table text-center">
+
+        <thead>
+          <tr class="mb-3 p-2">
+            <th scope="col">Expenses title</th>
+            <th scope="col">Expense value</th>
+            <th scope="col"><i class="bi bi-gear-wide-connected fs-5"></i></th>
+          </tr>
+        </thead>
+        <tbody id="tbodyTableau">
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="container" id="container3">
+      <div>
+        <button id="btnHistory" class="btn btn rounded-2  " type="button">History</button>
+      </div>
+      <hr>
+      <div id="divHistory" class="d-none">
+
+        <table class="table text-center">
+          <div class="list">
+            <h3>Liste des dépenses</h3>
+            <div class="list-container" id="liste"></div>
+          </div>
+          <thead>
+            <tr class="mb-3 p-2">
+              <th scope="col">#</th>
+              <th scope="col">Expenses title</th>
+              <th scope="col">Expense value</th>
+
+            </tr>
+          </thead>
+          <tbody id="tbodyHistory">
+
+          </tbody>
+
+
+
+        </table>
+        <div>
+          <button id="btnClose" class="btn btn-danger btn rounded-2 pt-auto " type="button">Close<i
+              class="bi bi-arrow-up"></i></button>
+        </div>
+      </div>
+
+
+      <div class=" graphe mt-5 w-50 mx-auto ">
+
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      </div>
+
+
+
+    </div>
+    <script src="chart.umd.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+/* .container-fluid{
+    border: 2px solid;
+} */
+#btnReset{
+   border: 2px solid rgb(191, 191, 33);
+   color: rgb(191, 191, 33) ;
+   
+  
+}
+
+
+/* .hide {
+    display: none !important;
+  } */
+  .error {
+    color: #ff465a;
+  }
+/* #container1{
+    border: 2px solid red;
+}
+#container2{
+    border: 2px solid blue;
+}
+#container3{
+    border: 2px solid green;
+} */
+#btnHistory{
+    border: 2px solid rgb(163, 137, 137);
+    color: rgb(163, 137, 137);
+    width: 100%;
+    
+}
+#btnClose{
+    width: 100%;
+}
+.iconDlete:hover{
+   
+    color: rgb(213, 49, 145);
+}
