@@ -16,6 +16,9 @@ const btnClose = document.getElementById('btnClose');
 const tbodyTableau = document.getElementById('tbodyTableau');
 const tbodyHistory = document.getElementById('tbodyHistory')
 const btnModifier = document.getElementById('btnModifier');
+const divDnotification = document.getElementById("divDnotification");
+const titreDnotification = document.getElementById("titreDnotification");
+const paragrapDnotification = document.getElementById("paragrapDnotification");
 
 //=========================================================
 
@@ -52,12 +55,9 @@ btnCalculate.addEventListener('click', function () {
   // console.log(inputBudget.value);
 
   if (inputBudget.value === "" || parseInt(inputBudget.value) < 0) {
-    erreurBudget.classList.remove("d-none");
     inputBudget.value = "";
-    setTimeout(() => {
-      erreurBudget.classList.add("d-none");
-    }, 2000);
-
+   
+      
   } else {
 
 
@@ -65,6 +65,8 @@ btnCalculate.addEventListener('click', function () {
     totalBalance = totalBudget - totalExpense;
     miseAjours()
     afficheResultat()
+    // Appelez la fonction pour afficher la notification
+     notification();
     inputBudget.value = "";
   }
 
@@ -270,6 +272,34 @@ tabExpense.forEach(achat => {
 // console.log(tabDatachart);
 
 
+
+let titre = 'Ajout de la depenses '
+let description = 'Votre depenses a été ajouté avec success '
+notification(titre, description)
+
+//======================================pour les notification
+
+
+// div de notification
+
+    let titreN = 'Ajout des depenses'
+    let descriptionN = 'Enregistrement effectue avec succes'
+    notification(titreN, descriptionN)
+
+function notification() {
+  divDnotification.classList.remove('d-none');
+  
+  setTimeout(() => {
+      divDnotification.classList.add('d-none');
+  }, 3000);
+}
+// Appelez la fonction pour afficher la notification
+notification();
+
+
+
+
+// pour la chart
 function showChart() {
   let config = {
     type: 'doughnut',

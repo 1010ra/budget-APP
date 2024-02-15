@@ -15,6 +15,12 @@
 </head>
 
 <body>
+
+  <div id="divDnotification" class="petitDivConnexion d-none">
+    <h2 id="titreDnotification" class="classConnexion">Ajout de Budget</h2>
+    <p id="paragrapDnotification" class="conbinaisonIdentifiant">Votre budget a été ajouté avec success</p>
+  </div>
+
   <div class="container-fluid d-flex p-3">
     <div class="container " id="container1">
       <div class="d-flex justify-content-between ">
@@ -25,9 +31,6 @@
       <div class="border border-success mb-3 p-1 rounded-2">
         <form id="budget-form" class="budget-form">
           <h5 class="text-capitalize">please enter your budget</h5>
-          <p class="d-none  error " id="erreur-budget">
-            La valeur ne peut pas être vide ou négative
-          </p>
           <div class="form-group">
             <input type="number" class="form-control budget-input border border-success mb-2 " id="inputBudget">
             <button type="button" class="btn btn-outline-success" id="btnCalculate">Calculate</button>
@@ -88,7 +91,7 @@
       </table>
     </div>
 
-
+            
     <div class="container" id="container3">
       <div>
         <button id="btnHistory" class="btn btn rounded-2  " type="button">History</button>
